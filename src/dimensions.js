@@ -7,7 +7,7 @@ var names = {
   Width: 'width'
 }
 
-var dimensions = function (el) {
+var dimensions = module.exports = function (el) {
   if(!(this instanceof dimensions)) return new dimensions(el);
 
   this.el = el
