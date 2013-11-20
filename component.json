@@ -24,6 +24,7 @@
     "ramitos/getWindow": "*",
     "twolfson/computedStyle": "*",
     "component/css": "*",
-    "ramitos/isWindow": "*"
+    "ramitos/isWindow": "*",
+    "component/type": "*"
   }
 }

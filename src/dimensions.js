@@ -1,6 +1,7 @@
 var isWindow = require('isWindow')
 var style = require('computedStyle')
 var css = require('css')
+var which_type = require('type')
 
 var names = {
   Height: 'height',
@@ -23,6 +24,7 @@ Object.keys(names).forEach(function (name) {
 
   Object.keys(defaultExtras).forEach(function (defaultExtra) {
     dimensions.prototype[defaultExtras[defaultExtra]] = function (value) {
+      var hasValue = (which_type(value) !== 'undefined')
       var css_to_set = {}
       css_to_set[type] = value
 
@@ -33,10 +35,11 @@ Object.keys(names).forEach(function (name) {
         return elem.document.documentElement['client' + name]
 
       // Get width or height on the element, requesting but not forcing parseFloat
-      // or
+      if((this.el.nodeType !== 9) && !hasValue)
+        return Number(style(this.el, type).replace(/$px/, '') || 0)
       // Set width or height on the element
-      if(this.el.nodeType !== 9)
-        return value === undefined ? style(this.el, type) : css(this.el, css_to_set)
+      else if(hasValue)
+        return css(this.el, css_to_set)
 
       // Get document width or height
       // Either scroll[Width/Height] or offset[Width/Height] or client[Width/Height],
