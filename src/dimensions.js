@@ -36,7 +36,7 @@ Object.keys(names).forEach(function (name) {
 
       // Get width or height on the element, requesting but not forcing parseFloat
       if((this.el.nodeType !== 9) && !hasValue)
-        return Number(style(this.el, type).replace(/$px/, '') || 0)
+        return Number(style(this.el, type).replace(/px$/, '') || 0)
       // Set width or height on the element
       else if(hasValue)
         return css(this.el, css_to_set)
