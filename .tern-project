@@ -1,0 +1,7 @@
+{
+  "libs": ["ecma5", "browser"],
+  "plugins": {
+    "doc_comment": true,
+    "component": {}
+  }
+}

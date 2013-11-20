@@ -1,0 +1,29 @@
+{
+  "name": "dimensions",
+  "version": "0.0.1",
+  "description": "jQuery based dimensions getters and setters (`innerHeight`, `innerWidth`, `height`, `width`, `outerHeight` and `outerWidth`)",
+  "repo": "ramitos/dimensions",
+  "keywords": [
+    "innerHeight",
+    "innerWidth",
+    "height",
+    "width",
+    "outerHeight",
+    "outerWidth",
+    "dimensions"
+  ],
+  "homepage": "https://github.com/ramitos/dimensions",
+  "license": "MIT",
+  "author": "Sérgio Ramos <mail@sergioramos.me> (http://sergioramos.me)",
+  "twitter": "@ramitos",
+  "main": "src/dimensions.js",
+  "scripts": [
+    "src/dimensions.js"
+  ],
+  "dependencies": {
+    "ramitos/getWindow": "*",
+    "twolfson/computedStyle": "*",
+    "component/css": "*",
+    "ramitos/isWindow": "*"
+  }
+}
