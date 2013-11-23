@@ -166,7 +166,7 @@ dimensions.prototype.outer = function (name, from, to) {
     padding += from_px(style(this.el, interpolate('padding-%', to)))
 
     if(!marginplus)
-      return content + border + margin
+      return content + border + padding
 
     return content + border + margin + padding
   }
