@@ -1,6 +1,6 @@
 {
   "name": "dimensions",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "jQuery based dimensions getters and setters (`innerHeight`, `innerWidth`, `height`, `width`, `outerHeight` and `outerWidth`)",
   "repo": "ramitos/dimensions",
   "keywords": [
@@ -21,10 +21,14 @@
     "src/dimensions.js"
   ],
   "dependencies": {
-    "ramitos/getWindow": "*",
     "twolfson/computedStyle": "*",
     "component/css": "*",
     "ramitos/isWindow": "*",
-    "component/type": "*"
+    "ramitos/isDocument": "*",
+    "component/type": "*",
+    "ramitos/interpolate": "*",
+    "yields/capitalize": "*",
+    "ramitos/from_px": "*",
+    "ramitos/to_px": "*"
   }
 }
