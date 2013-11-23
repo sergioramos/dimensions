@@ -127,7 +127,7 @@ dimensions.prototype.wh.get = function (name, from, to) {
 }
 
 dimensions.prototype.outer = function (name, from, to) {
-  return function () {
+  return function (marginplus) {
     if(isWindow(this.el))
       return this.from_window(name)
 
@@ -140,23 +140,34 @@ dimensions.prototype.outer = function (name, from, to) {
     var border = 0
     var margin = 0
 
+    // width already includes border and padding
+    if(boxSizing === 'border-box' && !marginplus)
+      return content
+
     margin += from_px(style(this.el, interpolate('margin-%', from)))
     margin += from_px(style(this.el, interpolate('margin-%', to)))
 
     // width already includes border and padding
-    if(boxSizing === 'border-box')
+    if(boxSizing === 'border-box' && marginplus)
       return content + margin
 
     border += from_px(style(this.el, interpolate('border-%s-%s', from, name)))
     border += from_px(style(this.el, interpolate('border-%s-%s', to, name)))
 
     // width already includes padding (but NOT border)
-    if(boxSizing === 'padding-box')
-      return content + margin + border
+    if(boxSizing === 'padding-box' & !marginplus)
+      return content + border
+
+    // width already includes padding (but NOT border)
+    if(boxSizing === 'padding-box' & marginplus)
+      return content + border + margin
 
     padding += from_px(style(this.el, interpolate('padding-%', from)))
     padding += from_px(style(this.el, interpolate('padding-%', to)))
 
-    return content + border + margin
+    if(!marginplus)
+      return content + border + margin
+
+    return content + border + margin + padding
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "dimensions",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "jQuery based dimensions getters and setters (`innerHeight`, `innerWidth`, `height`, `width`, `outerHeight` and `outerWidth`)",
   "repo": "ramitos/dimensions",
   "keywords": [
