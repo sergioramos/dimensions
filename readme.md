@@ -18,6 +18,10 @@ dimensions(el).innerHeight()
 dimensions(el).height('10px')
 ```
 
+## todo
+ * write docs
+ * write tests
+
 ## license
 
 MIT
