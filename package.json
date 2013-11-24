@@ -11,9 +11,9 @@
     "express": "3.4.x"
   },
   "testling": {
-    "files": "test/*.js",
-    "browsers": ["ie8", "ie9", "ff/13", "chrome/20"],
-    "files": "build/build.js",
+    "files": "test/index.js",
+    "browsers": ["chrome/32"],
+    "scripts": ["build/build.js"],
     "harness": "mocha-tdd"
   }
 }
