@@ -2,8 +2,16 @@ var assert = require('assert')
 var dimensions = require('dimensions')
 var css = require('css')
 var domify = require('domify')
+var type = require('type')
 
-document.body.appendChild(domify("<div id='nothiddendiv'><div id='nothiddendivchild'></div></div>"))
+var remove = function (el) {
+  if(arguments.length > 1 && type(arguments[1]) === 'element') return Array.prototype.map.call(arguments, remove)
+
+  if(el.remove) el.remove()
+  else if(el.parentNode) el.parentNode.removeChild(el)
+}
+
+document.body.appendChild(domify("<div id='mocha'></div><div id='nothiddendiv'><div id='nothiddendivchild'></div></div>"))
 mocha.setup('tdd')
 mocha.checkLeaks()
 
@@ -139,7 +147,7 @@ suite('innerWidth', function () {
 
   suiteTeardown(function () {
     css(div, {border: '', padding: '', width: '', height: '', display: ''})
-    disconnected.remove()
+    remove(disconnected)
   })
 })
 
@@ -180,7 +188,7 @@ suite('innerHeight', function () {
 
   suiteTeardown(function () {
     css(div, {border: '', padding: '', width: '', height: '', display: ''})
-    disconnected.remove()
+    remove(disconnected)
   })
 })
 
@@ -334,8 +342,7 @@ suite('child of a hidden elem (or unconnected node)', function () {
   // })
 
   suiteTeardown(function () {
-    divHiddenParent.remove()
-    divNormal.remove()
+    remove(divHiddenParent, divNormal)
   })
 })
 
@@ -452,7 +459,7 @@ suite('getting dimensions shouldn\'t modify runtimeStyle', function () {
   })
 
   suiteTeardown(function () {
-    runtimeStyleDiv.remove()
+    remove(runtimeStyleDiv)
   })
 })
 
@@ -478,7 +485,7 @@ suite('table', function () {
   // })
 
   suiteTeardown(function () {
-    table.remove()
+    remove(table)
   })
 })
 
@@ -577,8 +584,7 @@ suite('box-sizing:border-box child of a hidden elem (or unconnected node)', func
   // })
 
   suiteTeardown(function () {
-    divHiddenParent.remove()
-    divNormal.remove()
+    remove(divHiddenParent, divNormal)
   })
 })
 
@@ -637,7 +643,7 @@ suite('outerHeight', function () {
 
   suiteTeardown(function () {
     css(div, {display: '', border: '', padding: '', width: '', height: ''})
-    disconnected.remove()
+    remove(disconnected)
   })
 })
 
@@ -718,7 +724,7 @@ suite('getters on non elements', function () {
   })
 
   suiteTeardown(function () {
-    nonElem.remove()
+    remove(nonElem)
   })
 })
 
@@ -761,8 +767,7 @@ suite('setters with and without box-sizing:border-box', function () {
   })
 
   suiteTeardown(function () {
-    el_bb.remove()
-    el.remove()
+    remove(el_bb, el)
   })
 })
 
