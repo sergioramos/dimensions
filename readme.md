@@ -21,7 +21,8 @@ css(el, {
   height: '150px',
   padding: '10px',
   border: '1px solid black',
-  margin: '5px'
+  margin: '5px',
+  'box-sizing': 'border-box'
 })
 
 dimensions(el).innerWidth() // => '120px'
@@ -35,6 +36,19 @@ dimensions(el).outerHeight(true) // => '182px'
 
 dimensions(el).width(110)
 dimensions(el).height(160)
+
+dimensions(el).innerWidth() // => '130px'
+dimensions(el).innerHeight() // => '180px'
+dimensions(el).width() // => '110px'
+dimensions(el).height() // => '160px'
+dimensions(el).outerWidth() // => '132px'
+dimensions(el).outerWidth(true) // => '142px'
+dimensions(el).outerHeight() // => '182px'
+dimensions(el).outerHeight(true) // => '192px'
+
+css(el, {
+  'box-sizing': 'content-box'
+})
 
 dimensions(el).innerWidth() // => '130px'
 dimensions(el).innerHeight() // => '180px'
