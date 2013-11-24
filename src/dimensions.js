@@ -131,29 +131,39 @@ var wh = function (el, value, name, from, to) {
     return null
 
   if(type(value) !== 'undefined')
-    return wh.set(el, value, name)
+    return wh.set(el, value, name, from, to)
 
   return wh.get(el, name, from, to)
 }
 
-wh.set = function (el, value, name) {
+wh.set = function (el, value, name, from, to) {
   var to_set = Object.create(null)
-  value = to_px(value, true)
+  var content = from_px(style(el, name))
+  var boxSizing = style(el, 'box-sizing')
+  var padding = 0
+  var border = 0
 
-  to_set[name] = value
+  if(!boxSizing || boxSizing === 'content-box') {
+    to_set[name] = to_px(value, true)
+    return css(el, to_set)
+  }
+
+  padding += from_px(style(el, interpolate('padding-%s', from)))
+  padding += from_px(style(el, interpolate('padding-%s', to)))
+
+  if(boxSizing === 'padding-box') {
+    to_set[name] = value = to_px(value + padding, true)
+    return css(el, to_set)
+  }
+
+  border += from_px(style(el, interpolate('border-%s-width', from)))
+  border += from_px(style(el, interpolate('border-%s-width', to)))
+
+  to_set[name] = value = to_px(value + padding + border, true)
   css(el, to_set)
 }
 
 wh.get = function (el, name, from, to) {
-  if(isWindow(el))
-    return from_window(el, name)
-
-  if(isDocument(el))
-    return from_document(el, name)
-
-  if(!isElement(el))
-    return null
-
   var content = from_px(style(el, name))
   var boxSizing = style(el, 'box-sizing')
   var padding = 0
