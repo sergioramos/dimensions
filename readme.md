@@ -59,7 +59,10 @@ Gets the `width`/`height` **without** `border` and `margin`
 ![](https://i.cloudup.com/s1aUUk9pPP.png)
 
 Gets the `width`/`height` **without** `border`, `margin` and `padding`
+
 Sets the `width`/`height` by applying css rules into the element.
+
+Note that `.width([value])`/`.height([value])` will always return and set the `content-width`/`content-height` in conformity with the `box-sizing` value. This part of the implementation is not in parity with jQuery.
 
 ### .outerWidth([withMargin]) / .outerHeight([withMargin])
 
