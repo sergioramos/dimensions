@@ -3,10 +3,17 @@
   "version": "0.0.1",
   "main": "test/server.js",
   "scripts": {
-    "test": "component install -vd; component build -vd; node ./"
+    "install": "component install -vd; component build -vd",
+    "clean": "rm -rf build components node_modules"
   },
   "devDependencies": {
     "component": "0.18.x",
     "express": "3.4.x"
+  },
+  "testling": {
+    "files": "test/*.js",
+    "browsers": ["ie8", "ie9", "ff/13", "chrome/20"],
+    "files": "build/build.js",
+    "harness": "mocha-tdd"
   }
 }

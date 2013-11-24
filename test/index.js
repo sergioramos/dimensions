@@ -3,7 +3,7 @@ var dimensions = require('dimensions')
 var css = require('css')
 var domify = require('domify')
 
-
+document.body.appendChild(domify("<div id='nothiddendiv'><div id='nothiddendivchild'></div></div>"))
 mocha.setup('tdd')
 mocha.checkLeaks()
 
