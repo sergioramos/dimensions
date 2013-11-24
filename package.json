@@ -12,7 +12,7 @@
   },
   "testling": {
     "files": "test/index.js",
-    "browsers": ["chrome/32"],
+    "browsers": ["chrome/latest"],
     "scripts": ["build/build.js"],
     "harness": "mocha-tdd"
   }
