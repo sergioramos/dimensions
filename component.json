@@ -25,10 +25,18 @@
     "component/css": "*",
     "ramitos/isWindow": "*",
     "ramitos/isDocument": "*",
+    "ramitos/isElement": "*",
     "component/type": "*",
     "ramitos/interpolate": "*",
     "yields/capitalize": "*",
     "ramitos/from_px": "*",
     "ramitos/to_px": "*"
+  },
+  "development": {
+    "visionmedia/mocha": "*",
+    "component/assert": "*",
+    "visionmedia/mocha": "*",
+    "ramitos/blanket": "*",
+    "component/domify": "*"
   }
 }
