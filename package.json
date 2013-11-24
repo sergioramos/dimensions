@@ -4,16 +4,11 @@
   "main": "test/server.js",
   "scripts": {
     "install": "component install -vd; component build -vd",
-    "clean": "rm -rf build components node_modules"
+    "clean": "rm -rf build components node_modules",
+    "test": "node ./"
   },
   "devDependencies": {
     "component": "0.18.x",
     "express": "3.4.x"
-  },
-  "testling": {
-    "files": "test/index.js",
-    "browsers": ["chrome/latest"],
-    "scripts": ["build/build.js"],
-    "harness": "mocha-tdd"
   }
 }

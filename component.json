@@ -35,8 +35,8 @@
   "development": {
     "visionmedia/mocha": "*",
     "component/assert": "*",
-    "visionmedia/mocha": "*",
     "ramitos/blanket": "*",
-    "component/domify": "*"
+    "component/domify": "*",
+    "visionmedia/mocha": "*"
   }
 }

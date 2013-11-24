@@ -1,7 +1,5 @@
 # dimensions
 
-[![browser support](https://ci.testling.com/ramitos/dimensions.png)](https://ci.testling.com/ramitos/dimensions)
-
 [jquery/jquery](https://github.com/jquery/jquery/blob/2.0.3/src/dimensions.js) based dimensions getters and setters (`innerHeight`, `innerWidth`, `height`, `width`, `outerHeight` and `outerWidth`)
 
 ## install
