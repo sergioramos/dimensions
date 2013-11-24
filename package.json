@@ -1,0 +1,12 @@
+{
+  "name": "dimensions",
+  "version": "0.0.1",
+  "main": "test/server.js",
+  "scripts": {
+    "test": "component install -vd; component build -vd; node ./"
+  },
+  "devDependencies": {
+    "component": "0.18.x",
+    "express": "3.4.x"
+  }
+}
